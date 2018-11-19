@@ -3,5 +3,11 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ first_name: 'Star Wars' }, { first_name: 'Lord of the Rings' }])
+#   Character.create(first_name: 'Luke', movie: movies.first)
+
+#  Proper seeding with Faker TBD
+User.create(first_name: "Paul")
+User.create(first_name: "Seb")
+User.create(first_name: "Jack")
+User.create(first_name: "Henry")
