@@ -11,6 +11,11 @@ class CreateMachines < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :photo
 
+      # Adding a foreign key in a column to have the machine's owner (user) id.
+      # Have renamed this column's name to make it easier to read and understand.
+      # Not called user but owner for clarity.
+      t.foreign_key :owner
+
       t.timestamps
     end
   end

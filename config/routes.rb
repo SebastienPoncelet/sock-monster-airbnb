@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   # Not nested anymore for updating and deleting because not storing new machine id as it's already been done when creating a booking.
   # A review isn't created when a booking is made
-  ressources :bookings, only: [:edit, :update, :destroy] do
-    ressources :reviews, only: [:new, :create]
+  resources :bookings, only: [:edit, :update, :destroy] do
+    resources :reviews, only: [:new, :create]
   end
   #  Not necessary is no buttons or ways of doing those actions
   # ressources :reviews, only: [:edit, :update, :destroy]
