@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   end
   #  Not necessary is no buttons or ways of doing those actions
   # ressources :reviews, only: [:edit, :update, :destroy]
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :machines, only: [ :index ]
+    end
+  end
+
 end
 
 # For web app no need to nest bookings in users because you'd use the current user, and its id
