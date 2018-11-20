@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  #route for Wechat Open_Id verification
+  post '/login', to: 'login#login'
+
+
   resources :machines do
     # A booking has the machine but only necessary when the booking is created.
     resources :bookings, only: [:new, :create]
