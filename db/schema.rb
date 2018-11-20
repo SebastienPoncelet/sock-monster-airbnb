@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 2018_11_20_054647) do
     t.date "dates"
     t.string "status"
     t.integer "price"
+    t.bigint "user_id"
+    t.bigint "machine_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["machine_id"], name: "index_bookings_on_machine_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "machines", force: :cascade do |t|
@@ -33,8 +37,10 @@ ActiveRecord::Schema.define(version: 2018_11_20_054647) do
     t.integer "availability"
     t.integer "price"
     t.string "photo"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_machines_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -53,4 +59,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_054647) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "machines"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "machines", "users"
 end
