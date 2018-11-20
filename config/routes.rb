@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'machines/index'
-  get 'machines/show'
-  get 'machines/new'
-  get 'machines/create'
-  get 'machines/edit'
-  get 'machines/update'
-  get 'machines/destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #route for Wechat Open_Id verification
