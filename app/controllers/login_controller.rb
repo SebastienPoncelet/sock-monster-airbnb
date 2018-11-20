@@ -1,11 +1,12 @@
 class LoginController < ApplicationController
+skip_before_action :verify_authenticity_token
 
   URL = "https://api.weixin.qq.com/sns/jscode2session".freeze
 
 def wechat_params
   {
-    appid: ENV.['APP_ID'],
-    secret: ENV.['SECRET'],
+    appid: ENV['APP_ID'],
+    secret: ENV['SECRET'],
     js_code: params[:code],
     grant_type: "authorization_code"
   }
@@ -22,5 +23,4 @@ def login
     userId: @user.id
   }
 end
-
 end
