@@ -12,9 +12,9 @@ class CreateMachines < ActiveRecord::Migration[5.2]
       t.string :photo
 
       # Adding a foreign key in a column to have the machine's owner (user) id.
-      # Have renamed this column's name to make it easier to read and understand.
-      # Not called user but owner for clarity.
-      t.foreign_key :owner
+      # If we want to change the name in references, then you need additional lines to make it explicit to Rails.
+      # Convention over configuration. It cannot know if you change the convention what to look for.
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

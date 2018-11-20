@@ -6,11 +6,11 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.integer :price
 
       # Adding foreign keys in the table to have the user who rents the machine id and the machine's id.
-      # Have renamed this column's name to make it easier to read and understand.
-      # Not called user but renter for clarity.
-      t.foreign_key :renter
-      t.foreign_key :machine
+      t.references :user, foreign_key: true
+      t.references :machine, foreign_key: true
 
+      # If we want to change the name in references, then you need additional lines to make it explicit to Rails.
+      # Convention over configuration. It cannot know if you change the convention what to look for.
       t.timestamps
     end
   end
