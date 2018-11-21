@@ -17,4 +17,11 @@ class Api::V1::MachinesController < Api::V1::BaseController
     @machine.save
   end
 
+  private
+
+  def machine_params
+    params.require(:machine).permit(:name, :location, :sock_count, :availability, :price, :user_id)
+
+  end
+
 end
