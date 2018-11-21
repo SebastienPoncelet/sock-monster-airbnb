@@ -15,5 +15,6 @@ class Api::V1::MachinesController < Api::V1::BaseController
   def create
     @machine = Machine.new(machine_params)
     @machine.save
+  end
 
 end
