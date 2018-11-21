@@ -13,20 +13,23 @@ puts "Destroy all"
 User.destroy_all
 Machine.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 puts "Creating Users"
 
 user_id = 1
 machine_id = 1
+booking_id = 1
 
 10.times do
   User.create(first_name: Faker::Name.name)
   Machine.create(user_id: user_id, name: Faker::FunnyName.name, sock_count: Faker::Number.number(2), location: Faker::Address.street_name, availability: Faker::Number.number(2), price: Faker::Number.number(2))
   Booking.create(user_id: user_id, machine_id: machine_id, dates: Faker::Date.forward(23), price: Faker::Number.number(2), status: "pending")
+  Review.create(user_id: user_id, booking_id: booking_id, title: Faker::LordOfTheRings.character, rating: Faker::Number.number(1), comment: Faker::HitchhikersGuideToTheGalaxy.quote)
 
   user_id += 1
   machine_id += 1
-
+  booking_id += 1
 end
 
 puts "Creating Machines"

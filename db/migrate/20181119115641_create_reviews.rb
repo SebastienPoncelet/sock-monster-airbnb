@@ -5,6 +5,9 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :comment
       t.string :title
 
+      t.references :user, foreign_key: true
+      t.references :booking, foreign_key: true
+
       t.timestamps
     end
   end
