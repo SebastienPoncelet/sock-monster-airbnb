@@ -15,16 +15,17 @@ class Api::V1::MachinesController < Api::V1::BaseController
   def create
     @machine = Machine.new(machine_params)
     if @machine.save
-      render :show, status: :create
+      render :show
       # The render allows WeChat frontend to see what's going on when adding a new element.
     else
       render_error
+    end
   end
 
   private
 
   def machine_params
-    params.require(:machine).permit(:name, :location, :sock_count, :availability, :price, :user_id)
+    params.require(:machine).permit(:name, :description, :location, :sock_count, :availability, :price, :user_id)
 
   end
 
