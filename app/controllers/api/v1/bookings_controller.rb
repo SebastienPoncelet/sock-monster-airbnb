@@ -1,4 +1,5 @@
-class BookingsController < ApplicationController
+class Api::V1::BookingsController < ActionController::Base
+
   def index
     @booking = Booking.all
   end
@@ -30,6 +31,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:dates, :price, :status, :user_id, :machine_id)
   end
-
 
 end
