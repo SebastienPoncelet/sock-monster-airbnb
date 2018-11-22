@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
+# Adding gem to use Leancloud service for pictures.
+gem 'leancloud-ruby-client' #, '~> 0.2.0'
+
 # adding the faker gem
 gem 'faker'
 
