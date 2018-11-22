@@ -25,7 +25,7 @@ class Api::V1::MachinesController < Api::V1::BaseController
   private
 
   def machine_params
-    params.require(:machine).permit(:name, :description, :location, :sock_count, :availability, :price, :user_id)
+    params.require(:machine).permit(:name, :description, :location, :sock_count, :availability, :price, :user_id, :photo)
 
   end
 
