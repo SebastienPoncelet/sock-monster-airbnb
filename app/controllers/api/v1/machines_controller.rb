@@ -22,6 +22,20 @@ class Api::V1::MachinesController < Api::V1::BaseController
     end
   end
 
+  def update
+    if @machine.update(machine_params)
+      render :show
+    else
+      render_error
+    end
+  end
+
+  def destroy
+    @machine.destroy
+    head :no_content
+    # No need to create a `destroy.json.jbuilder` view
+  end
+
   private
 
   def machine_params
