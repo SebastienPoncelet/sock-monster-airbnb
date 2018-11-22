@@ -21,7 +21,7 @@ user_id = 1
 machine_id = 1
 booking_id = 1
 
-10.times do
+3.times do
   User.create(first_name: Faker::Name.name)
   Machine.create(user_id: user_id, name: Faker::FunnyName.name, sock_count: Faker::Number.number(2), location: Faker::Address.street_name, availability: Faker::Number.number(2), price: Faker::Number.number(2))
   Booking.create(user_id: user_id, machine_id: machine_id, dates: Faker::Date.forward(23), price: Faker::Number.number(2), status: "pending")
