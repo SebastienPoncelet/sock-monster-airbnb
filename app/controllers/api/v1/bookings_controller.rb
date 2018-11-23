@@ -1,5 +1,5 @@
 class Api::V1::BookingsController < ActionController::Base
-
+skip_before_action :verify_authenticity_token
   def index
     @bookings = Booking.all
   end
@@ -14,6 +14,7 @@ class Api::V1::BookingsController < ActionController::Base
 
   def create
     @booking = Booking.new(booking_params)
+    p @booking
     if @booking.save
       render :show
       # The render allows WeChat frontend to see what's going on when adding a new element.
