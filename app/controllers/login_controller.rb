@@ -19,6 +19,8 @@ def wechat_user
 end
 
 def login
+  # Would need to extract user avatar's URL when he logs in.
+  # Need to store the avatar in User instance.
   open_id = wechat_user.fetch("openid")
   puts "open_id", open_id
   @user = User.find_or_create_by(open_id: open_id)
