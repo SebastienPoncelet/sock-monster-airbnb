@@ -25,8 +25,7 @@ class Api::V1::MachinesController < Api::V1::BaseController
   private
 
   def machine_params
-    params.require(:machine).permit(:name, :description, :location, :sock_count, :availability, :price, :user_id, :photo)
-
+    params.require(:machine).permit(:name, :description, :location, :sock_count, :availability, :price, :photo, :user_id)
   end
 
   # The render will have to be used too when updating an element so that WeChat frontend can see it.
