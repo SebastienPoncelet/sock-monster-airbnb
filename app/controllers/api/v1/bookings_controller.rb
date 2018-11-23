@@ -15,7 +15,7 @@ class Api::V1::BookingsController < ActionController::Base
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      render :show, status: :create
+      render :show
       # The render allows WeChat frontend to see what's going on when adding a new element.
     else
       render_error
@@ -25,9 +25,10 @@ class Api::V1::BookingsController < ActionController::Base
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :price, :status, :user_id, :machine_id)
+    params.require(:booking).permit(:dates, :status, :price, :user_id, :machine_id)
   end
 
   # The render will have to be used too when updating an element so that WeChat frontend can see it.
 
 end
+
